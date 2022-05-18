@@ -1,5 +1,8 @@
 package es.ulpgc.eite.restaurantmenu.sections;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import es.ulpgc.eite.restaurantmenu.data.MenuItem;
 
 /**
@@ -13,4 +16,13 @@ public class SectionsViewModel {
   public MenuItem itemDesserts;
 
   public Integer priceMenu = 0;
+
+  public void updatePrice() {
+    List<MenuItem> list = new ArrayList<>();
+    list.add(itemDesserts);
+    list.add(itemMainCourses);
+    list.add(itemStarters);
+
+    priceMenu = itemDesserts.itemPrice + itemStarters.itemPrice + itemMainCourses.itemPrice;
+  }
 }

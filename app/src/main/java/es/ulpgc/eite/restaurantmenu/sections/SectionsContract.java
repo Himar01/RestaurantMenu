@@ -1,7 +1,9 @@
 package es.ulpgc.eite.restaurantmenu.sections;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
+import es.ulpgc.eite.restaurantmenu.data.MenuItem;
 import es.ulpgc.eite.restaurantmenu.data.MenuItems;
 
 /**
@@ -27,7 +29,6 @@ public interface SectionsContract {
     void onStartersBtnClicked();
     void onMainCoursesBtnClicked();
     void onDessertsBtnClicked();
-    void fetchProductListData();
   }
 
   interface Model {

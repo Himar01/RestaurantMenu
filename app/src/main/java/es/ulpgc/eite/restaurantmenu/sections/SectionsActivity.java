@@ -36,7 +36,6 @@ public class SectionsActivity
     } else {
       presenter.onRestart();
     }
-    presenter.fetchProductListData();
   }
 
 

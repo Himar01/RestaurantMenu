@@ -61,7 +61,7 @@ public class SectionsPresenter implements SectionsContract.Presenter {
           state.itemMainCourses = savedState.item;
           break;
       }
-      state.priceMenu =
+      state.updatePrice();
     }
     view.get().onDataUpdated(state);
   }
@@ -90,7 +90,7 @@ public class SectionsPresenter implements SectionsContract.Presenter {
   @Override
   public void onStartersBtnClicked() {
     Log.e(TAG, "onStartersBtnClicked()");
-    passDataToItemsScreen(state.menuItems.itemsStarters);
+    passDataToItemsScreen(model.getStoredData().itemsStarters);
     state.menuSection = MenuSection.Starters;
     view.get().navigateToNextScreen();
   }
@@ -98,7 +98,7 @@ public class SectionsPresenter implements SectionsContract.Presenter {
   @Override
   public void onMainCoursesBtnClicked() {
     Log.e(TAG, "onMainCoursesBtnClicked()");
-    passDataToItemsScreen(state.menuItems.itemsMainCourses);
+    passDataToItemsScreen(model.getStoredData().itemsMainCourses);
     state.menuSection = MenuSection.MainCourses;
     view.get().navigateToNextScreen();
   }
@@ -106,10 +106,12 @@ public class SectionsPresenter implements SectionsContract.Presenter {
   @Override
   public void onDessertsBtnClicked() {
     Log.e(TAG, "onDessertsBtnClicked()");
-    passDataToItemsScreen(state.menuItems.itemsDesserts);
+    passDataToItemsScreen(model.getStoredData().itemsDesserts);
     state.menuSection = MenuSection.Desserts;
     view.get().navigateToNextScreen();
   }
+
+
 
   private void passDataToItemsScreen(List<MenuItem> sectionItem){
     List<MenuItem> items = sectionItem;
@@ -127,11 +129,5 @@ public class SectionsPresenter implements SectionsContract.Presenter {
     this.model = model;
   }
 
-  @Override
-  public void fetchProductListData() {
-    Log.e(TAG, "fetchProductListData()");
-    // call the model
-    state.menuItems = model.getStoredData();
 
-  }
 }

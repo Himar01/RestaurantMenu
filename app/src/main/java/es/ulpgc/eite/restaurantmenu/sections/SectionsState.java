@@ -10,5 +10,4 @@ public class SectionsState extends SectionsViewModel {
 
   // put the model state here
   public MenuSection menuSection;
-  public MenuItems menuItems;
 }
