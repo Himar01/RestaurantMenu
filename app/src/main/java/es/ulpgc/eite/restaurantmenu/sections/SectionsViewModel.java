@@ -22,7 +22,10 @@ public class SectionsViewModel {
     list.add(itemDesserts);
     list.add(itemMainCourses);
     list.add(itemStarters);
-
-    priceMenu = itemDesserts.itemPrice + itemStarters.itemPrice + itemMainCourses.itemPrice;
+    priceMenu=0;
+    for(MenuItem x : list){
+      if (x!=null)
+        priceMenu+= x.itemPrice;
+    }
   }
 }
